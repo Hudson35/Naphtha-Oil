@@ -1,0 +1,31 @@
+<% include partials/header %>
+
+<h1 style="color: white; text-align: center;" id="welcome2">Welcome, <%=client.name.firstName%> <%=client.name.lastName%>!</h1>
+
+<div class="ui container segment">
+    <div class="ui first huge header" style="text-align: center;">Here Is Your Profile</div>
+	<div style="text-align: center;">
+<a href="/clients/home/fuelQuoteForm" class="ui black basic button" id="gaq">Get A Quote</a>
+    <a href="/clients/home/fuelQuoteHistory" class="ui black basic button" id="gqh">View Quote History</a>
+	</div>
+	<br>
+    <div>
+        <div class="ui vertical segments fluid" style="text-align: center;">
+            <div class="ui segment">
+                <strong>Username: </strong><%=client.username%>
+            </div><br>
+             <div class="ui segment">
+                <strong>Full Name: </strong><%=client.name.firstName%> <%=client.name.lastName%>
+            </div> <br>            
+			<div class="ui segment">
+                <strong>Address: </strong><%=client.address.street%> <%=client.address.city%> 								<%=client.address.state%> <%=client.address.zipcode%>
+            </div> <br>
+            <div class="ui segment">
+                <strong>Email: </strong><%=client.email%>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<% include partials/footer %>

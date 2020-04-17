@@ -1,0 +1,41 @@
+<% include partials/header %>
+
+<div class="ui main text container segment" id="container">
+    <div class="ui huge header" style="text-align: center;">Please Login Below</div>
+    <%if(message.type === 'error') {%>
+        <div class="ui negative message">
+            <i class="close icon"></i>
+            <div class="header"><i class="exclamation icon"></i><%=messageHeader%></div>
+            <div class="body"><%=messageBody%></div>
+        </div>
+    <%} else if(message.type === 'success') {%>
+        <div class="ui success message">
+            <i class="close icon"></i>
+            <div class="header"><i class="check icon"></i><%=messageHeader%></div>
+            <div class="body"><%=messageBody%></div>
+        </div>
+    <%} else if(message.type === 'warning') {%>
+        <div class="ui warning message">
+            <i class="close icon"></i>
+            <div class="header"><i class="exclamation icon"></i><%=messageHeader%></div>
+            <div class="body"><%=messageBody%></div>
+        </div>
+    <%}%>
+    <form class="ui form" action="/login" method="POST">
+        <div class="field">
+            <input type="text" name="username" placeholder="Username">
+        </div>
+        <div class="field">
+            <input type="password" name="password" placeholder="Password" required>
+        </div>
+		<div style="text-align: center;">
+        <div class="ui buttons">
+        <button type="text" class="ui grey basic button">Submit</button>
+        <div class="or"></div>
+        <a href="/" class="ui black basci button">Cancel</a>
+    </div>
+		</div>
+    </form>
+</div>
+
+<% include partials/footer %>

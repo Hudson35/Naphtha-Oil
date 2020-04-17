@@ -1,0 +1,49 @@
+<% include partials/header %>
+<%# this is the fuel quote model %>
+<div class="ui main text container segment" id="container">
+    <div class="ui huge header" style="text-align: center;">Get A Quote</div>
+    <form class="ui form" action="/clients/home/fuelQuoteForm" method="POST" autocomplete="off">
+        <%# fuel quantity(gallons) %>
+        <div class="field">
+            <label for="quote[gallons]">Quantity(Gallons)</label>
+            <input type="number" name="quote[gallons]" placeholder="0" id="gallons" required>
+        </div>
+        <%# address from profile %>
+        <div class="field">
+            <label for="quote[address]">Delivery Address</label>
+            <input type="text" name="quote[address]" value="<%=client.address.street%>, <%=client.address.city%>, <%=client.address.state%>, <%=client.address.zipcode%>" id="address" readonly>
+        </div>
+        <%# date of delivery and pickup %>
+        <div class="fields">
+            <div class="eight wide field">
+                <label for="quote[orderdate]">Date of Order</label>
+                <input type="text" name="quote[orderdate]" id="orderdate" readonly>                
+            </div>
+            <div class="eight wide field">
+                <label for="quote[deliverydate]">Date of Delivery</label>
+                <input type="text" name="quote[deliverydate]" id="datepicker" required>                
+            </div>
+        </div>
+        <%# price %>
+        <div class="fields">
+            <div class="eight wide field">
+                <label for="quote[suggested]">Suggested Price Per Gallon</label>
+                <input type="text" name="quote[suggested]" id="suggprice" placeholder="0" readonly required>
+            </div> 
+            <div class="eight wide field">
+                <label for="quote[total]">Total Amount</label>
+                <input type="text" name="quote[total]" id="totalprice" placeholder="0" readonly required>
+            </div>
+        </div>
+        <%# Buttons %>
+		<div style="text-align: center;">
+        <div class="ui buttons">
+        <button type="submit" class="ui grey basic button" id="calculatePrice">Get Price</button>
+        <div class="or"></div>
+        <a href="/clients/home" class="ui black button">Cancel</a>
+        </div>
+		</div>
+    </form>
+</div>
+
+<% include partials/footer %>

@@ -1,0 +1,30 @@
+body { 
+	width: 100%;
+	height: 100%;
+	background: url('https://images.pexels.com/photos/87236/pexels-photo-87236.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260') no-repeat center fixed;
+  background-size: cover;
+  opacity: 0.95;
+  filter: alpha(opacity=95); 
+}
+
+#container { margin-top: 7em; }
+
+
+#welcome1 { 
+	margin-top: 2em; 
+}
+#welcome2 { 
+	margin-top: 3em; 
+}
+
+.btns, #welcome { 
+	text-align: center; 
+}
+
+.firstname, .lastname {
+    width: 50%;
+    float: left;
+}
+
+.quoteInfo { float: right; }
+
