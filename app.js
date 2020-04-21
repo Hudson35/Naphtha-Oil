@@ -28,7 +28,7 @@ var options = {
 // url will equal the enviroment variable if it exist, if it doesn't exist it will be my local 
 var url = process.env.DATABASEURL || "mongodb://localhost:27017/naphthaDevelopment";
 console.log(url);
-console.log(process.env.DATABASEURL);	// DATABASEURL stores the mongoDB Atlas connection string 
+console.log(process.env.DATABASEURL);	// DATABASEURL stores the mongoDB Atlas connection string, found in this app's corresponding cluster at mongoDB.Atlas 
 mongoose.connect(url, { useNewUrlParser: true, useCreateIndex: true });
 
 
