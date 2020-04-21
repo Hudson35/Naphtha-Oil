@@ -32,7 +32,6 @@ console.log(process.env.DATABASEURL);
 // var url = process.env.DATABASEURL;	//this is the mongoDb atlas string
 mongoose.connect(url, { useNewUrlParser: true, useCreateIndex: true });
 
-//mongodb+srv://dbDevHudson:db_Dev_Hudson@cluster0-naphthaoil-gxht2.mongodb.net/naphthaProduction?retryWrites=true&w=majority
 
 //MIDDLEWARE
 //Connecting to a database and or creating a database if one is not set up yet
