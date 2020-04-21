@@ -23,26 +23,23 @@ var options = {
 //======================================
 
 
-
-//Creating a environment variable to help with deployed version of DB and testing version of DB for our application. 
-//url will equal the enviroment variable if it exist, if it doesn't exist it will be local 
+// Creating an environment variable called DATABASEURL to help connect with deployed version of DB. For testing application 
+// will use local DB. 
+// url will equal the enviroment variable if it exist, if it doesn't exist it will be my local 
 var url = process.env.DATABASEURL || "mongodb://localhost:27017/naphthaDevelopment";
 console.log(url);
-console.log(process.env.DATABASEURL);
-// var url = process.env.DATABASEURL;	//this is the mongoDb atlas string
+console.log(process.env.DATABASEURL);	// DATABASEURL stores the mongoDB Atlas connection string 
 mongoose.connect(url, { useNewUrlParser: true, useCreateIndex: true });
 
 
-//MIDDLEWARE
-//Connecting to a database and or creating a database if one is not set up yet
+// Local setup of DB before introducing mongodb Atlas to the equation. 
+// Connecting to a database and or creating a database if one is not set up yet
 // mongoose.connect("mongodb://localhost:27017/sdProjectV4_final_version", { useNewUrlParser: true, useCreateIndex: true}, (err) => {
 // 	if (err) {
 // 		console.error("Failed to connect to mongodb");
 // 		throw err;
 // 	}
 // });
-
-
 
 
 app.use(bodyParser.urlencoded({extended: true}));
