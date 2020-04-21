@@ -23,14 +23,30 @@ var options = {
 //======================================
 
 
+
+//Creating a environment variable to help with deployed version of DB and testing version of DB for our application. 
+//url will equal the enviroment variable if it exist, if it doesn't exist it will be local 
+var url = process.env.DATABASEURL || "mongodb://localhost:27017/naphthaDevelopment";
+console.log(url);
+console.log(process.env.DATABASEURL);
+// var url = process.env.DATABASEURL;	//this is the mongoDb atlas string
+mongoose.connect(url, { useNewUrlParser: true, useCreateIndex: true });
+
+//mongodb+srv://dbDevHudson:db_Dev_Hudson@cluster0-naphthaoil-gxht2.mongodb.net/naphthaProduction?retryWrites=true&w=majority
+
 //MIDDLEWARE
 //Connecting to a database and or creating a database if one is not set up yet
-mongoose.connect("mongodb://localhost:27017/sdProjectV4_final_version", { useNewUrlParser: true, useCreateIndex: true}, (err) => {
-	if (err) {
-		console.error("Failed to connect to mongodb");
-		throw err;
-	}
-});
+// mongoose.connect("mongodb://localhost:27017/sdProjectV4_final_version", { useNewUrlParser: true, useCreateIndex: true}, (err) => {
+// 	if (err) {
+// 		console.error("Failed to connect to mongodb");
+// 		throw err;
+// 	}
+// });
+
+
+
+
+
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
@@ -60,7 +76,8 @@ app.use('/', require('./routes/index'));
 app.use('/clients', require('./routes/clients'));
 
 
-//SERVER RESPONSE 
-app.listen(port, function () {
-  console.log("Server started!");
+// This is where the server will start and listen for the specified port number on whatever environment
+// the code is running on for PORT and IP address. e.g. a heroku or goorm ide environment or a local one, hence the 3000.
+app.listen(process.env.PORT || 3000, process.env.IP, function(){
+	console.log("The Naphtha Oil Server Has Started!");
 });
